@@ -1,4 +1,4 @@
-print("name,hasPainPoint,type,pay,topics,createDate")
+print("_id,name,hasPainPoint,type,pay,topics,createDate")
 db.themes.aggregate([
     {"$unwind": "$topics"},
     {"$project": {
@@ -15,6 +15,6 @@ db.themes.aggregate([
     }}
 ]).forEach(
     function (doc) {
-        print(doc.name +","+ doc.hasPainPoint +","+ doc.type +","+ doc.pay +","+ doc.topics +","+ doc.createDate)
+        print(doc._id +","+ doc.name +","+ doc.hasPainPoint +","+ doc.type +","+ doc.pay +","+ doc.topics +","+ doc.createDate)
     }
 )

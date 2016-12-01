@@ -9,19 +9,19 @@ date
 echo "daily update courses class"
 
 echo "running dim_chapters"
-$MONGOINSTANCE ./dim_chapter.js > data_dim_chapter.csv
+$MONGOINSTANCE ./dim_chapter.js > data_dim_chapter_$YEAR$MONTH$DAY.csv
 
 echo "running dim_themes"
-$MONGOINSTANCE ./dim_themes.js > data_dim_themes.csv
+$MONGOINSTANCE ./dim_themes.js > data_dim_themes_$YEAR$MONTH$DAY.csv
 
 echo "running dim_topcis"
-$MONGOINSTANCE ./dim_topcis.js > data_dim_topics.csv
+$MONGOINSTANCE ./dim_topcis.js > data_dim_topics_$YEAR$MONTH$DAY.csv
 
 echo "running dim_hypervideos"
-$MONGOINSTANCE ./dim_hypervideos.js > data_dim_hypervideos.csv
+$MONGOINSTANCE ./dim_hypervideos.js > data_dim_hypervideos_$YEAR$MONTH$DAY.csv
 
 echo "running dim_practices"
-$MONGOINSTANCE ./dim_practices.js > data_dim_practices.csv
+$MONGOINSTANCE ./dim_practices.js > data_dim_practices_$YEAR$MONTH$DAY.csv
 
 echo "compress all csv"
 mv *.csv ./data

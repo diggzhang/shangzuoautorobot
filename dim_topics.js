@@ -1,6 +1,6 @@
 // mongo --quiet --host 10.8.8.8 onion40-backup ./dim_topics.js >
 // 0.06s user 0.03s system 39% cpu 0.231 total
-print("createDate,videoId,name,painPoint,pay,practice,status,subject,type")
+print("_id,createDate,videoId,name,painPoint,pay,practice,status,subject,type")
 db.topics.aggregate({
     "$project": {
         "createDate": {
@@ -20,6 +20,6 @@ db.topics.aggregate({
     }
 }).forEach(
     function (doc) {
-        print(doc.createDate +","+ doc.videoId +","+ doc.name +","+ doc.painPoint +","+ doc.pay +","+ doc.practice +","+ doc.status +","+ doc.subject +","+ doc.type)
+        print(doc._id +","+ doc.createDate +","+ doc.videoId +","+ doc.name +","+ doc.painPoint +","+ doc.pay +","+ doc.practice +","+ doc.status +","+ doc.subject +","+ doc.type)
     }
 )

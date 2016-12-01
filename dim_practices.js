@@ -1,4 +1,4 @@
-print("createDate,name,index,pool,problems")
+print("_id,createDate,name,index,pool,problems")
 db.practices.aggregate([
     {"$unwind": "$levels"},
     {"$unwind": "$levels.problems"},
@@ -16,6 +16,6 @@ db.practices.aggregate([
     }}
 ]).forEach(
     function (doc) {
-        print(doc.createDate +","+ doc.name +","+ doc.index +","+ doc.pool +","+ doc.problems)
+        print(doc._id +","+ doc.createDate +","+ doc.name +","+ doc.index +","+ doc.pool +","+ doc.problems)
     }
 )

@@ -1,4 +1,4 @@
-print("name,ref,student,teacher")
+print("_id,name,ref,student,teacher")
 db.rooms.aggregate([
     {"$unwind": "$members"},
     {"$unwind": "$owners"},
@@ -10,6 +10,6 @@ db.rooms.aggregate([
     }}
 ]).forEach(
     function(doc) {
-        print(doc.name +","+ doc.ref +","+ doc.student +","+ doc.teacher)
+        print(doc._id +","+ doc.name +","+ doc.ref +","+ doc.student +","+ doc.teacher)
     }
 )
